@@ -1,0 +1,72 @@
+.user-wrapper
+  border: 1px solid #dddddd
+  overflow-y: auto
+  height: 700px
+  ul
+    margin: 0
+    padding: 0
+
+li
+  list-style: none
+
+.user
+  cursor: pointer
+  padding: 5px 0
+  position: relative
+  &:hover
+    background: grey
+  &:last-child
+    margin-bottom: 0
+
+.media-left
+  img
+    border-radius: 50%
+    width: 64px
+    margin: 0 12px
+
+.pending
+  position: absolute
+  left: 13px
+  top: 9px
+  background: #b600ff
+  margin: 0
+  border-radius: 50%
+  width: 18px
+  height: 18px
+  line-height: 18px
+  padding-left: 5px
+  color: #ffffff
+  font-size: 12px
+
+.message-wrapper
+  border: 1px solid #dddddd
+  overflow-y: auto
+  height: 700px
+  background: #0088cc
+
+.received, .sent
+  width: 45%
+  padding: 3px 10px
+  border-radius: 10px
+
+.received
+  background: #ffffff
+
+.sent
+  background: #AFFF70
+  float: right
+  text-align: right
+
+.date
+  font-size: 11px
+  color: #777777
+
+.active
+  background: #eeeeee
+
+input[type=text]
+  width: 100%
+  padding: 12px
+  border: 1px solid gainsboro
+  outline: none
+
