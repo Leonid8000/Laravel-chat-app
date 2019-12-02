@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid">
+<div class="container-fluid messanger-bg">
     <div class="row">
 {{-- Users wrapper --}}
         <div class="col-md-3">

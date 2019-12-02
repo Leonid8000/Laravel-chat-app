@@ -1,10 +1,19 @@
+//.messanger-bg
+//  background: #e3e3e3
+body
+  background: lightgray
+
 .user-wrapper
   border: 1px solid #dddddd
   overflow-y: auto
-  height: 700px
+  height: 850px
+  background: white
   ul
     margin: 0
     padding: 0
+  @media screen and (max-width: 375px)
+  .user-wrapper
+    height: 100px
 
 li
   list-style: none
@@ -14,9 +23,11 @@ li
   padding: 5px 0
   position: relative
   &:hover
-    background: grey
+    background: #eeeeee
   &:last-child
     margin-bottom: 0
+  .name
+    font-weight: 600
 
 .media-left
   img
@@ -39,34 +50,46 @@ li
   font-size: 12px
 
 .message-wrapper
-  border: 1px solid #dddddd
+  border: 1px solid #eeeeee
   overflow-y: auto
-  height: 700px
-  background: #0088cc
+  height: 850px
+  background: #99FF21
+  box-shadow: inset 13px 24px 35px #46750F
+@media screen and (max-width: 375px)
+  .message-wrapper
+    height: 400px
 
 .received, .sent
   width: 45%
   padding: 3px 10px
   border-radius: 10px
+  margin: 2px 0
 
 .received
   background: #ffffff
 
 .sent
-  background: #AFFF70
-  float: right
-  text-align: right
+  background: #B4FFBC
+
+.message-text
+  color: black
+  font-weight: bold
 
 .date
   font-size: 11px
   color: #777777
 
 .active
-  background: #eeeeee
+  background: #5ED9FF
+  &:hover
+    background: #5ED9FF
+
 
 input[type=text]
   width: 100%
   padding: 12px
   border: 1px solid gainsboro
   outline: none
+  position: fixed
+  bottom: 0
 

@@ -96,7 +96,7 @@
      })
  });
 
- //Scroll down function
+ //Scroll down message wrapper function
  function scrollToBottomFunc(){
      $('.message-wrapper').animate({
          scrollTop: $('.message-wrapper').get(0).scrollHeight

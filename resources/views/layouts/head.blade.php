@@ -12,4 +12,5 @@
 
 <!-- Styles -->
 <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+<link href="{{ asset('css/main-page.css') }}" rel="stylesheet">
 <link href="{{ asset('sass/style.css') }}" rel="stylesheet">
