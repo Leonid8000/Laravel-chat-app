@@ -9,9 +9,10 @@ body {
   .user-wrapper ul {
     margin: 0;
     padding: 0; }
-  .user-wrapper .user-wrapper {
-    height: 100px; }
 
+@media screen and (max-width: 667px) {
+  .user-wrapper {
+    height: 100%; } }
 li {
   list-style: none; }
 
@@ -52,9 +53,9 @@ li {
   background: #99FF21;
   box-shadow: inset 13px 24px 35px #46750F; }
 
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 667px) {
   .message-wrapper {
-    height: 400px; } }
+    height: 100%; } }
 .received, .sent {
   width: 45%;
   padding: 3px 10px;
@@ -87,5 +88,16 @@ li {
   outline: none;
   position: fixed;
   bottom: 0; }
+
+.display-none {
+  display: none; }
+
+.display-block {
+  display: block; }
+
+#arrow {
+  font-size: 20px; }
+  #arrow:hover {
+    cursor: pointer; }
 
 /*# sourceMappingURL=style.css.map */

@@ -41,7 +41,7 @@ html, body {
     -webkit-animation:colorchange 10s infinite alternate;
 }
 
-.title {
+.title-change {
     font-size: 40px;
     font-weight: 600;
     color: #00101F;

@@ -41,7 +41,6 @@ class HomeController extends Controller
 
         return view('home',
             ['users' => $users,
-//            'messages' => $messages
 ]);
     }
 
@@ -95,6 +94,11 @@ class HomeController extends Controller
     }
     
     public function changeAvatar(Request $request){
+
+        $this->validate($request, [
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+        ]);
+
         if($request->hasFile('avatar')){
             $avatar = $request->file('avatar');
             $filename = time(). '.' .$avatar->getClientOriginalExtension();
@@ -107,4 +111,22 @@ class HomeController extends Controller
             return redirect(route('home'));
         }
     }
+
+    public function updateProfile(Request $request)
+    {
+        $id = Auth::user()->id;
+
+        $this->validate($request, [
+            'name'      => 'required', 'string', 'max:255',
+            'email'     => 'required|string|email|max:255|unique:users,email,'.$id,
+        ]);
+        $user = Auth::user();
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        $user->save();
+        return redirect(route('home'));
+
+    }
+
 }

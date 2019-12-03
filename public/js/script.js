@@ -2,6 +2,7 @@
 
  let receiver_id = '';
  let my_id = "{{ Auth::id() }}";
+ // let users_wrapper = $('#users-wrapper');
 
  $(document).ready(function() {
      // ajax setup form csrf token
@@ -44,10 +45,17 @@
      });
      //End pusher ------------------------------------------------------
 
+
+     // Add bg to users-wrapper
      //При нажатие на юзера добавление bg active и взятие его id
      $('.user').click(function () {
          $('.user').removeClass('active');
          $(this).addClass('active');
+
+         // $('#users-wrapper').addClass('display-none');
+         // $('#arrow').addClass('display-block');
+
+
          $(this).find('.pending').remove();
          //Grab attr id
          receiver_id = $(this).attr('id');
@@ -65,6 +73,7 @@
             }
          });
      });
+
 
      $(document).on('keyup', '.input-text input', function(e){
         // Grab message
@@ -112,3 +121,22 @@
  function closeNav() {
      document.getElementById("mySidepanel").style.width = "0";
  }
+
+ // document.getElementById("arrow").addEventListener('click',function () {
+ //     alert('ok');
+ // });
+
+ $(".email").click(function(){
+     // $("#message-wrapper").hide();
+     alert("ok");
+ });
+ // $('#arrow').click(showUsers);
+ //
+ // function showUsers(){
+ //     document.getElementById("user-wrapper").style.display = "block";
+ // }
+ // $('#arrow').click(function () {
+     // $('#users-wrapper').addClass('display-block');
+     // alert('Ok');
+     // document.getElementById("array").style.display = "block";
+ // });

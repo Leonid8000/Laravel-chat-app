@@ -18,6 +18,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
 Route::post('/home','HomeController@changeAvatar')->name('avatar');
+
+Route::post('','HomeController@updateProfile')->name('update');
+
 Route::get('/message/{id}', 'HomeController@getMessage')->name('messages');
 Route::post('message', 'HomeController@sendMessage');

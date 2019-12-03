@@ -6,12 +6,13 @@ body
   overflow-y: auto
   height: 850px
   background: white
+  //margin-left: 0
   ul
     margin: 0
     padding: 0
-  @media screen and (max-width: 375px)
+@media screen and (max-width: 667px)
   .user-wrapper
-    height: 100px
+    height: 100%
 
 li
   list-style: none
@@ -53,9 +54,11 @@ li
   height: 850px
   background: #99FF21
   box-shadow: inset 13px 24px 35px #46750F
-@media screen and (max-width: 375px)
+
+@media screen and (max-width: 667px)
   .message-wrapper
-    height: 400px
+    height: 100%
+    //display: none
 
 .received, .sent
   width: 45%
@@ -90,4 +93,15 @@ li
   outline: none
   position: fixed
   bottom: 0
+
+.display-none
+  display: none
+
+.display-block
+  display: block
+
+#arrow
+  font-size: 20px
+  &:hover
+    cursor: pointer
 

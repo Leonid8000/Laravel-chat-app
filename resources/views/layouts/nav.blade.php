@@ -1,5 +1,13 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-    <button class="openbtn" onclick="openNav()">&#9776;</button>
+    @guest
+
+    @if (Route::has('register'))
+
+    @endif
+    @else
+        <button class="openbtn" onclick="openNav()">&#9776;</button>
+
+        @endguest
     <div class="container">
 
         @include('layouts.sidebar')
@@ -38,11 +46,7 @@
                                                      document.getElementById('logout-form').submit();">
                                 {{ __('Logout') }}
                             </a>
-                            <!-- Button trigger modal -->
-                        <a class="dropdown-item" data-toggle="modal" data-target="#exampleModal">
-                            Profile
-                        </a>
-
+                            <!-- Logout Btn -->
                             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                 @csrf
                             </form>
@@ -51,30 +55,11 @@
                     </li>
 
                     <!-- Modal Change Avatar -->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title" id="exampleModalLabel">Change Avatar</h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
+                    @include('modal.avatar')
 
-                                    <form method="post" action="{{route('avatar')}}" enctype="multipart/form-data">
-                                        @csrf
-                                        {{ csrf_field() }}
+                    <!-- Modal Change Name and Email -->
+                    @include('modal.profile')
 
-                                        <input type="file" name="avatar" required>
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-
-                                        <button type="submit" class="btn btn-primary mt-1">Save changes</button>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     @endguest
             </ul>
         </div>

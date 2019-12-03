@@ -1,11 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid messanger-bg">
+<div class="container-fluid messanger-bg ">
     <div class="row">
 {{-- Users wrapper --}}
         <div class="col-md-3">
-            <div class="user-wrapper">
+            <div class="user-wrapper" id="users-wrapper">
                 <ul class="users">
             @foreach($users as $user)
                     <li class="user" id="{{$user->id}}">
@@ -35,8 +35,10 @@ C/O https://placeholder.com/" alt="" class="media-object">
             </div>
         </div>
 
+        {{--<button id="arrow" class="arrow"><i class="fas fa-arrow-left"></i></button>--}}
+
         <div class="col-md-9" id="messages">
-            {{--@include('messages.index')--}}
+            @include('messages.default')
         </div>
 
     </div>

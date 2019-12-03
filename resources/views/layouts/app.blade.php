@@ -4,8 +4,8 @@
    @include('layouts.head')
 </head>
 <body>
-    <div id="app">
 
+    <div id="app">
         @include('layouts.nav')
 
         <main>
