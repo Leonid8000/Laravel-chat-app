@@ -16,7 +16,12 @@
 
                         <div class="media">
                             <div class="media-left">
-                                <img src="{{$user->avatar}}" alt="" class="media-object">
+                                @if($user->avatar == null)
+                                <img src="https://via.placeholder.com/150
+C/O https://placeholder.com/" alt="" class="media-object">
+                                @else
+                                <img src="uploads/avatars/{{$user->avatar}}" alt="" class="media-object">
+                                @endif
                             </div>
 
                             <div class="media-body">

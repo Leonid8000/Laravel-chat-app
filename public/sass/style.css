@@ -80,7 +80,7 @@ li {
   .active:hover {
     background: #5ED9FF; }
 
-input[type=text] {
+.messanger-btn {
   width: 100%;
   padding: 12px;
   border: 1px solid gainsboro;

@@ -12,7 +12,7 @@
     </div>
 
 <div class="input-text">
-    <input type="text" class="submit" name="message" placeholder="Write a message...">
+    <input type="text" class="submit messanger-btn" name="message" placeholder="Write a message...">
 </div>
 
 

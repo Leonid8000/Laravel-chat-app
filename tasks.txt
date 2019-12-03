@@ -1,5 +1,62 @@
 1 Отправка ajax что-бы отправитель видел сразу что он отправил
 
-2 Модал профиля для загрузки аватарки
+2 Модал профиля для загрузки аватарки +++
 
-3 Аватарку в message wrapper
+3 Аватарку в message wrapper +++
+
+4 Дизайн на мобильных утройствах
+
+5 Login Register Забыли пароль Сделать viue
+
+6 Edit profile
+
+7 Поиск друзей среди юзеров и их добавление
+
+8 Показать ошибку файла внешне !!!
+
+Live chat на laravel
+---------
+В config/app.php
+App \ Providers \ BroadcastServiceProvider
+
+We need to tell Laravel that we are using the Pusher driver in the .env file
+// .env
+
+BROADCAST_DRIVER=pusher
+
+
+После завершения установки нам нужно настроить учетные данные приложения Pusher
+ в config / broadcasting.php. Чтобы получить учетные данные приложения Pusher,
+ нам нужно иметь учетную запись Pusher.
+
+https://dashboard.pusher.com/apps/908950/getting_started
+
+
+Установил lara 5.8 , make:auth .env 
+
+Providers/AppServiceProviders
+
+    public function boot()
+    {
+        Schema::defaultStringLength(191);
+    }
+
+При изменениях в model & migration
+
+php artisan migrate:fresh
+
+Забуск фабрик 
+php artisan tinker
+factory(App\User::class, 30)->create()
+
+Avatar
+---------------------------------------------
+php composer.phar require intervention/image - this NOT WORK
+
+composer require intervention/image
+
+Add in providers array in config/app.php
+Intervention\Image\ImageServiceProvider::class
+
+Add in aliases array:
+'Image' => Intervention\Image\Facades\Image::class

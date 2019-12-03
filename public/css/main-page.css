@@ -42,9 +42,10 @@ html, body {
 }
 
 .title {
-    font-size: 45px;
+    font-size: 40px;
     font-weight: 600;
     color: #00101F;
+    font-family: 'Calistoga', cursive;
 }
 .title-change{
     /*-webkit-animation:colorchange 10s infinite alternate;*/
@@ -132,8 +133,158 @@ html, body {
 .word-effect:hover{
     color:white;
     /*transition: 0.1s;*/
+    cursor: crosshair;
     box-shadow: 30px 80px 90px 70px #0ff;
     -webkit-filter: blur(3px);
     -ms-filter: blur(3px);
     filter: blur(3px);
+}
+
+/* The sidepanel menu */
+.sidebar-header{
+    background: whitesmoke;
+}
+.sidebar-header img{
+    width:70px;
+    height: 70px;
+    border-radius: 50%;
+}
+
+.sidepanel {
+    height: 100%; /* Specify a height */
+    width: 0; /* 0 width - change this with JavaScript */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Stay on top */
+    top: 0;
+    left: 0;
+    background-color: #E6EDF2;
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 60px; /* Place content 60px from the top */
+    transition: 0.5s; /* 0.5 second transition effect to slide in the sidepanel */
+}
+
+/* The sidepanel links */
+.sidepanel a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidepanel a:hover {
+    color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidepanel .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+.sidepanel{
+    box-shadow: 25px 0 25px -25px #333;
+}
+
+/* Style the button that is used to open the sidepanel */
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    padding: 10px 15px;
+    border: none;
+}
+
+.openbtn:hover {
+    /*background-color: #444;*/
+}
+.btn-link{
+    color: #1b1e21;
+    text-decoration: none;
+}
+.btn-link:hover{
+    color: #1b1e21;
+    text-decoration: none;
+}
+
+/* Accordeon */
+.accordion a{
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.card-header{
+    background: white;
+}
+.card-header:hover{
+    background: whitesmoke;
+}
+
+/* Switch btn */
+/* The switch - the box around the slider */
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 40px;
+    height: 16px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+/* The slider */
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    /*left: 4px;*/
+    bottom: -2px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
 }

@@ -8,8 +8,10 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Calistoga&display=swap" rel="stylesheet">
         {{-- Style --}}
         <link href="{{ asset('css/main-page.css') }}" rel="stylesheet">
+
     </head>
     <body>
         <div class="flex-center position-ref full-height">
@@ -18,10 +20,10 @@
                     @auth
                         <a href="{{ url('/home') }}" class="home-link">Home</a>
                     @else
-                        <a href="{{ route('login') }}">Login</a>
+                        <a href="{{ route('login') }}" class="home-link">Login</a>
 
                         @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
+                            <a href="{{ route('register') }}" class="home-link">Register</a>
                         @endif
                     @endauth
                 </div>

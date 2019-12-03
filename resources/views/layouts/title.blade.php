@@ -1,15 +1,15 @@
 <span class="shadow-bg"></span>
-<span class="word-effect">Best</span>
+<span class="word-effect">BEST</span>
 
 <span class="shadow-bg"></span>
-<span class="word-effect">Messanger
+<span class="word-effect">MESSANGER
 <span class="shadow-bg"></span></span>
 
 <span class="shadow-bg"></span>
-<span class="word-effect">of</span>
+<span class="word-effect">OF</span>
 
 <span class="shadow-bg"></span>
-<span class="word-effect">the</span>
+<span class="word-effect">THE</span>
 <span class="shadow-bg"></span>
 
 <span class="word-effect">UNIVE
