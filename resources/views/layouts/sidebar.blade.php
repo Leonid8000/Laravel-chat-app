@@ -64,13 +64,6 @@ C/O https://placeholder.com/" alt="" class="media-object">
                     </div>
                 </div>
 
-                {{--<div class="card-header" id="headingOne">--}}
-                    {{--<h5 class="mb-0">--}}
-                        {{--<i class="far fa-address-book"></i>--}}
-                        {{--<button class="btn btn-link" type="button" data-toggle="modal" data-target="#modal3Contacts">Contacts</button>--}}
-                    {{--</h5>--}}
-                {{--</div>--}}
-
 {{-- Sidebar accardeon with settings(change name, email, password and avatar --}}
                 <div class="accordion" id="accordionExample">
                     <div class="card z-depth-0 bordered">
@@ -110,6 +103,32 @@ C/O https://placeholder.com/" alt="" class="media-object">
                         </label>
                     </h5>
                 </div>
+
+
+                    @guest
+
+                    @if (Route::has('register'))
+
+                    @endif
+                    @else
+
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <i class="fas fa-sign-out-alt"></i><button class="btn btn-link" type="button">
+
+                                <a class="btn btn-link log-out-link" id="log-out" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+                                <!-- Logout Btn -->
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </button>
+                        </h5>
+                    </div>
+                        @endguest
             </div>
 
             <!-- Modal Change Avatar -->

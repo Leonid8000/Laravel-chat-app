@@ -10,7 +10,7 @@
 <div class="container-fluid messanger-bg">
     <div class="row">
 {{-- Users wrapper --}}
-        <div class="col-md-3">
+        <div class="col-md-2">
             <div class="user-wrapper" id="users-wrapper">
                 <ul class="users">
             @foreach($friends as $friend)
@@ -48,7 +48,7 @@ C/O https://placeholder.com/" alt="" class="media-object">
 
         {{--<button id="arrow" class="arrow"><i class="fas fa-arrow-left"></i></button>--}}
 
-        <div class="col-md-9" id="messages">
+        <div class="col-md-10" id="messages">
             @include('messages.default')
         </div>
 

@@ -12,7 +12,8 @@ body {
 
 @media screen and (max-width: 667px) {
   .user-wrapper {
-    height: 100%; } }
+    height: 100%;
+    width: 100%; } }
 li {
   list-style: none; }
 
@@ -29,8 +30,8 @@ li {
 
 .media-left img {
   border-radius: 50%;
-  width: 64px;
-  margin: 0 12px; }
+  width: 54px;
+  margin: 0 8px; }
 
 .pending {
   position: absolute;
@@ -51,7 +52,8 @@ li {
   overflow-y: auto;
   height: 850px;
   background: #99FF21;
-  box-shadow: inset 13px 24px 35px #46750F; }
+  box-shadow: inset 13px 24px 35px #46750F;
+  margin: 0; }
 
 @media screen and (max-width: 667px) {
   .message-wrapper {
@@ -95,6 +97,11 @@ li {
   outline: none;
   position: fixed;
   bottom: 0; }
+
+#log-out {
+  font-size: 16px; }
+  #log-out:hover {
+    color: black; }
 
 .display-none {
   display: none; }

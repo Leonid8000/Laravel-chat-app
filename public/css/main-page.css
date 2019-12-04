@@ -288,3 +288,12 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+.card-body2{
+    background: black;
+    color: white;
+}
+
+.card-header h2{
+    font-family: 'Calistoga', cursive;
+}
