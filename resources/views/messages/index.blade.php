@@ -1,4 +1,4 @@
-<button id="arrow" class="arrow"><i class="fas fa-arrow-left"></i></button>
+{{--<button id="arrow" class="arrow"><i class="fas fa-arrow-left"></i></button>--}}
 
     <div class="message-wrapper" id="message-wrapper">
         <ul class="messages">

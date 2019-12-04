@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Message;
+use App\Friend;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Pusher\Pusher;
 use Intervention\Image\Facades\Image;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class HomeController extends Controller
 {
@@ -29,19 +31,24 @@ class HomeController extends Controller
      */
     public function index()
     {
+// Friends
+        $friends = Auth::user()->friends();
+        
         //All users logged in user
         $users = User::where('id', '!=', Auth::id())->get();
 //        $messages = Message::where('id', '!=', Auth::id())->get();
 
-        //count how many message are unread from the selected
+// Сount how many message are unread from the selected
         $users = DB::select("select users.id, users.name, users.avatar, users.email, count(is_read) as unread 
         from users LEFT JOIN messages ON users.id = messages.from and is_read = 0 and messages.to = " .Auth::id(). "
         where users.id != " . Auth::id() ."
         group by users.id, users.name, users.avatar, .users.email");
 
         return view('home',
-            ['users' => $users,
-]);
+            [
+                'users' => $users,
+                'friends' => $friends,
+            ]);
     }
 
     public function getMessage($user_id){
@@ -109,6 +116,8 @@ class HomeController extends Controller
             $user->save();
 
             return redirect(route('home'));
+        }else{
+            return back()->with('warning','Это не имг мудила');
         }
     }
 
@@ -128,5 +137,28 @@ class HomeController extends Controller
         return redirect(route('home'));
 
     }
+
+    public function contacts(){
+        $friends = Auth::user()->friends();
+    }
+
+    public function addContact(Request $request){
+
+        $users = User::where('id', '!=', Auth::id())->get();
+
+        foreach ($users as $user){
+            if($request->name === $user->name && $request->email === $user->email){
+                $friend_id = $user->id;
+            }else{
+                return back()->with('warning','НЕ найдено такого пользователя');
+            }
+
+        }
+        $contact = new Friend();
+        $contact->user_id = Auth::user()->id;
+        $contact->friend_id = $friend_id;
+        $contact->save();
+        return redirect(route('home'));
+}
 
 }

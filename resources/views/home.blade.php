@@ -1,13 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container-fluid messanger-bg ">
+    @if ($message = Session::get('warning'))
+        <div class="alert alert-warning alert-block">
+            <button type="button" class="close" data-dismiss="alert">×</button>
+            <strong>{{ $message }}</strong>
+        </div>
+    @endif
+<div class="container-fluid messanger-bg">
     <div class="row">
 {{-- Users wrapper --}}
         <div class="col-md-3">
             <div class="user-wrapper" id="users-wrapper">
                 <ul class="users">
-            @foreach($users as $user)
+            @foreach($friends as $friend)
+                @foreach($users as $user)
+
+                    @if($friend->id == $user->id)
                     <li class="user" id="{{$user->id}}">
 
                         @if($user->unread)
@@ -30,6 +39,8 @@ C/O https://placeholder.com/" alt="" class="media-object">
                             </div>
                         </div>
                     </li>
+                            @endif
+                @endforeach
             @endforeach
                 </ul>
             </div>

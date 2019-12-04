@@ -1,5 +1,6 @@
 
 
+
  let receiver_id = '';
  let my_id = "{{ Auth::id() }}";
  // let users_wrapper = $('#users-wrapper');
@@ -10,6 +11,18 @@
          headers: {
              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
          }
+     });
+
+     $('#night-mode-btn').click(function () {
+
+         $('#users-wrapper').toggleClass('night');
+         $('body').toggleClass('night');
+         $('#mySidepanel').toggleClass('night');
+         $('#mySidepanel').toggleClass('night');
+         $('#message-wrapper').toggleClass('night');
+         $('.message-wrapper').toggleClass('night');
+         $('#side-and-other').toggleClass('night');
+
      });
 
      // Enable pusher logging - don't include this in production
@@ -140,3 +153,5 @@
      // alert('Ok');
      // document.getElementById("array").style.display = "block";
  // });
+
+

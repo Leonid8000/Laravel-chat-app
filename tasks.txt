@@ -6,30 +6,31 @@
 
 9 Фон где сообщения +++
 
+15 Modal не видно на маленьких экранах+++
+
+7  добавление друзей+++
+
+Верстка:
+1 Дизайн на мобильных утройствах
+2 Login Register Забыли пароль Сделать viue
+3 Contacts
+3 Night mode Процесс пошел)) -доделать
+4 В сообщениеях рядом аву
+
 
 
 1 Отправка ajax что-бы отправитель видел сразу что он отправил
+2 Поиск по друзьям
+3 Показать ошибку файла внешне !!!
+4 Удалить из друзей или блокировка
+5 Кружок горит когда юзер в сети
 
-4 Дизайн на мобильных утройствах
-
-
-5 Login Register Забыли пароль Сделать viue
-
-7 Поиск друзей среди юзеров и их добавление
-
-8 Показать ошибку файла внешне !!!
 
 10 Создать группу
 
 11 Создать канал
 
-12 Night mode
 
-13 Глобальный поиск по всем юзерам каналам и группам
-
-14 Поиск по друзьям
-
-15 Modal не видно на маленьких экранах
 
 Live chat на laravel
 ---------
@@ -77,3 +78,24 @@ Intervention\Image\ImageServiceProvider::class
 
 Add in aliases array:
 'Image' => Intervention\Image\Facades\Image::class
+
+
+php artisan make:model Friend -a
+!Флаг а создает модель миграцию фабрику и контроллер(ресурсный)
+
+Переделпть миграцию и фабрику под свои нужды
+
+3 метода в моделе юзер
+    public function friendsOfMine(){
+        return $this->belongsToMany('App\Friend', 'friends', 'user_id', 'friend_id');
+    }
+
+    public function friendsOf(){
+        return $this->belongsToMany('App\Friend', 'friends', 'friend_id', 'user_id');
+    }
+
+    public function friends(){
+        return $this->friendsOfMine->merge($this->friendsOf);
+    }
+
+php artisan make:event BroadcastChat

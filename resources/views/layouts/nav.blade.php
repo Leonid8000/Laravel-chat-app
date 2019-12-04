@@ -8,7 +8,7 @@
         <button class="openbtn" onclick="openNav()">&#9776;</button>
 
         @endguest
-    <div class="container">
+    <div class="container" id="side-and-other">
 
         @include('layouts.sidebar')
 
@@ -54,13 +54,7 @@
                         </div>
                     </li>
 
-                    <!-- Modal Change Avatar -->
-                    @include('modal.avatar')
-
-                    <!-- Modal Change Name and Email -->
-                    @include('modal.profile')
-
-                    @endguest
+                 @endguest
             </ul>
         </div>
     </div>
