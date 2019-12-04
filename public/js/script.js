@@ -1,6 +1,4 @@
 
-
-
  let receiver_id = '';
  let my_id = "{{ Auth::id() }}";
  // let users_wrapper = $('#users-wrapper');
@@ -13,15 +11,19 @@
          }
      });
 
+     // Night Mode activetion
      $('#night-mode-btn').click(function () {
 
          $('#users-wrapper').toggleClass('night');
-         $('body').toggleClass('night');
-         $('#mySidepanel').toggleClass('night');
-         $('#mySidepanel').toggleClass('night');
-         $('#message-wrapper').toggleClass('night');
-         $('.message-wrapper').toggleClass('night');
-         $('#side-and-other').toggleClass('night');
+         $('body').toggleClass('bg-light-dark-blue');
+         // $('#mySidepanel').toggleClass('night');
+         $('#side-and-other').toggleClass('bg-light-dark-blue');
+         $('.night-mode-btn').toggleClass('bg-light-dark-blue');
+         $('.messanger-btn').toggleClass('bg-grey');
+         // $('.messanger-btn').toggleClass('text-color-light');
+
+         $('.message-wrapper').toggleClass('bg-dark-blue');
+         $('#side-and-other').toggleClass('bg-dark-blue');
 
      });
 

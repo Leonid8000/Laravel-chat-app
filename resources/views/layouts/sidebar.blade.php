@@ -7,7 +7,7 @@
         @endif
         @else
 
-            <div id="mySidepanel" class="sidepanel">
+        <div id="mySidepanel" class="sidepanel">
                 <div class="sidebar-header">
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
         <div class="d-flex justify-content-center mt-1 pt-2">
@@ -103,15 +103,12 @@ C/O https://placeholder.com/" alt="" class="media-object">
                         </label>
                     </h5>
                 </div>
-
-
                     @guest
 
                     @if (Route::has('register'))
 
                     @endif
                     @else
-
                     <div class="card-header" id="headingOne">
                         <h5 class="mb-0">
                             <i class="fas fa-sign-out-alt"></i><button class="btn btn-link" type="button">

@@ -53,19 +53,31 @@ li
   border: 1px solid #eeeeee
   overflow-y: auto
   height: 850px
-  background: #99FF21
-  box-shadow: inset 13px 24px 35px #46750F
+  background: #49FFF7
+  box-shadow: inset 13px 24px 35px #34495e
   margin: 0
 
 @media screen and (max-width: 667px)
   .message-wrapper
     height: 100%
-
   .sent
     float: right
   .received
     float: left
     margin-left: 0
+
+@media screen and (max-width: 414px)
+  #nav
+    position: fixed
+    z-index: 1
+    top: 0
+    left: 0
+    width: 100%
+    height: 60px
+    background: none
+  .user-wrapper
+    margin-top: 18%
+
 .received, .sent
   width: 45%
   padding: 3px 10px
@@ -110,11 +122,22 @@ li
 .display-block
   display: block
 
-#arrow
-  font-size: 20px
-  &:hover
-    cursor: pointer
-
 .night
   background: #193285
   color: whitesmoke
+
+//  Night Mode
+.bg-dark-blue
+  background: #08235C
+
+.bg-light-dark-blue
+  background: #05163B
+
+.bg-grey
+  background: #93AECC
+
+.text-color-light
+  color: whitesmoke
+
+.text-color-grey
+  color: lightgrey

@@ -200,9 +200,6 @@ html, body {
     border: none;
 }
 
-.openbtn:hover {
-    /*background-color: #444;*/
-}
 .btn-link{
     color: #1b1e21;
     text-decoration: none;
