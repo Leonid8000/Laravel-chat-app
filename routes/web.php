@@ -31,5 +31,8 @@ Route::get('/friends', 'FriendController@index')->name('friends');
 
 Route::post('/add', 'HomeController@addContact')->name('add-friend');
 
+Route::get('/search', 'HomeController@search');
+//Route::get('/search', 'HomeController@showSearch');
+
 
 //Broadcast::channel()

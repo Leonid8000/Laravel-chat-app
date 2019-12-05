@@ -166,7 +166,7 @@ class HomeController extends Controller
             if($request->name === $user->name && $request->email === $user->email){
                 $friend_id = $user->id;
             }else{
-                return back()->with('warning','НЕ найдено такого пользователя');
+                return back()->with('warning','NOT found that user');
             }
 
         }
@@ -175,6 +175,24 @@ class HomeController extends Controller
         $contact->friend_id = $friend_id;
         $contact->save();
         return redirect(route('home'));
-}
+    }
+    
+    public function search(Request $request){
+        if($request->ajax()){
+            $output = "";
+            $users = DB::table('users')->where('name','LIKE','%'.$request->search."%")->get();
+
+            if($users){
+                foreach ($users as $key => $user){
+                    $output.='<p>'.$user->name.'</p>';
+                }
+                return response($output);
+            }
+        }
+    }
+
+//    public function showSearch(){
+//        return view('search');
+//    }
 
 }

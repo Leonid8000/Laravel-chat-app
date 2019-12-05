@@ -39,14 +39,16 @@ C/O https://placeholder.com/" alt="" class="media-object">
                             </div>
                         </div>
                     </li>
-                            @endif
+                                @endif
                 @endforeach
             @endforeach
                 </ul>
             </div>
-        </div>
 
-        {{--<button id="arrow" class="arrow"><i class="fas fa-arrow-left"></i></button>--}}
+            <div id="ajax">
+
+            </div>
+        </div>
 
         <div class="col-md-10" id="messages">
             @include('messages.default')
@@ -54,4 +56,9 @@ C/O https://placeholder.com/" alt="" class="media-object">
 
     </div>
 </div>
+
+    {{--<script type="text/javascript">--}}
+        {{--$.ajaxSetup({ headers: { 'csrftoken' : '{{ csrf_token() }}' } });--}}
+    {{--</script>--}}
+
 @endsection

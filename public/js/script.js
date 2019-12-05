@@ -1,35 +1,30 @@
 
  let receiver_id = '';
  let my_id = "{{ Auth::id() }}";
- // let users_wrapper = $('#users-wrapper');
+
 
  $(document).ready(function() {
-     // ajax setup form csrf token
+// ajax setup form csrf token
      $.ajaxSetup({
          headers: {
              'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
          }
      });
 
-     // Night Mode activetion
+// Night Mode activetion
      $('#night-mode-btn').click(function () {
 
          $('#users-wrapper').toggleClass('night');
          $('body').toggleClass('bg-light-dark-blue');
-         // $('#mySidepanel').toggleClass('night');
          $('#side-and-other').toggleClass('bg-light-dark-blue');
          $('.night-mode-btn').toggleClass('bg-light-dark-blue');
          $('.messanger-btn').toggleClass('bg-grey');
-         // $('.messanger-btn').toggleClass('text-color-light');
-
          $('.message-wrapper').toggleClass('bg-dark-blue');
          $('#side-and-other').toggleClass('bg-dark-blue');
-
      });
 
-     // Enable pusher logging - don't include this in production
-     Pusher.logToConsole = true;
-
+// Enable pusher logging - don't include this in production !!!
+// Pusher.logToConsole = true;
      let pusher = new Pusher('bb5bb879b82a445b7b26', {
          cluster: 'eu',
          forceTLS: true
@@ -61,15 +56,10 @@
      //End pusher ------------------------------------------------------
 
 
-     // Add bg to users-wrapper
-     //При нажатие на юзера добавление bg active и взятие его id
+// Add bg Active to users-wrapper
      $('.user').click(function () {
          $('.user').removeClass('active');
          $(this).addClass('active');
-
-         // $('#users-wrapper').addClass('display-none');
-         // $('#arrow').addClass('display-block');
-
 
          $(this).find('.pending').remove();
          //Grab attr id
@@ -91,12 +81,12 @@
 
 
      $(document).on('keyup', '.input-text input', function(e){
-        // Grab message
+// Grab message
          let message = $(this).val();
         // alert(receiver_id);
 
-         // check if Enter key is pressed message is not null also receiver is selected
-         //Если enter нажат и ,mess не пустое и id юзера которому отправляем письмо не пустое
+// check if Enter key is pressed message is not null also receiver is selected
+//Если enter нажат и ,mess не пустое и id юзера которому отправляем письмо не пустое
          if(e.keyCode == 13 && message !='' && receiver_id != ''){
              $(this).val('');// После нажатия поле очищаеться
              //Отправляемые данные Например:   receiver_id=5&message=Сообщение
@@ -117,10 +107,15 @@
                 } 
              });
          }
-     })
+     });
+
  });
 
- //Scroll down message wrapper function
+ // data: {
+ //     search: searchValue,
+ // },
+
+//Scroll down message wrapper function
  function scrollToBottomFunc(){
      $('.message-wrapper').animate({
          scrollTop: $('.message-wrapper').get(0).scrollHeight
@@ -137,23 +132,34 @@
      document.getElementById("mySidepanel").style.width = "0";
  }
 
- // document.getElementById("arrow").addEventListener('click',function () {
- //     alert('ok');
- // });
-
- $(".email").click(function(){
-     // $("#message-wrapper").hide();
-     alert("ok");
+ /* Live search users(friends) */
+ //При наборе текса валуе инпута береться в переменную
+ $(document).ready(function() {
+// ajax setup form csrf token
+     $.ajaxSetup({headers: {'csrftoken' : '{{ csrf_token() }}'} });
+     $('#search').on('keyup', function () {
+         let searchValue = $(this).val();
+         // alert(searchValue);
+         //-----------------------------------------
+         $.ajax({
+             type: 'get',
+             url: "{{ URL::to('search') }}",
+             //         // url: "home",
+             data: {
+                 search: searchValue,
+             },
+             success: function (data) {
+                 $('#users-wrapper').hide();
+                 $('#ajax').html(data);
+             },
+             error: function (jqXHR, textStatus, errorThrown) {
+                 console.log("Ошибка AJAX : " + textStatus + ' : ' + errorThrown);
+             }
+         })
+     });
  });
- // $('#arrow').click(showUsers);
- //
- // function showUsers(){
- //     document.getElementById("user-wrapper").style.display = "block";
- // }
- // $('#arrow').click(function () {
-     // $('#users-wrapper').addClass('display-block');
-     // alert('Ok');
-     // document.getElementById("array").style.display = "block";
- // });
+
+
+
 
 
