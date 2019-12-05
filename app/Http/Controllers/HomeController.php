@@ -65,16 +65,32 @@ class HomeController extends Controller
             $query->where('from', $user_id)->where('to', $my_id);
         })->get();
 
+
+//        $users = User::where('id', '!=', Auth::id())->get();
+
+        $users = User::all();
+
+//        foreach ($users as $user){
+//            if($messages->from == $user->id){
+//                $avatars = $user->avatar;
+//            }
+//        }
+
         return view('messages.index',
-            ['messages' => $messages]);
+            [
+                'messages' => $messages,
+                'users' => $users,
+//                'avatars' => $avatars
+            ]);
     }
 
     public function sendMessage(Request $request){
         $from = Auth::id();
+        
         //Вытаскуем данные из реквеста переданные с помощью ajax
         $to = $request->receiver_id;
         $message = $request->message;
-
+        
         $data = new Message();
         $data->to = $to;
         $data->message = $message;

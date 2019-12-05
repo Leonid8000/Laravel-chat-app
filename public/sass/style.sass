@@ -68,8 +68,8 @@ li
 
 @media screen and (max-width: 414px)
   #nav
-    position: fixed
-    z-index: 1
+    //position: fixed
+    //z-index: 1
     top: 0
     left: 0
     width: 100%
@@ -77,15 +77,27 @@ li
     background: none
   .user-wrapper
     margin-top: 18%
-
+  .openbtn
+    z-index: 1
+    
 .received, .sent
   width: 45%
   padding: 3px 10px
-  border-radius: 10px
+  border-radius: 10px 10px 10px 0
   margin: 2px 0
 
 .received
   background: #ffffff
+//.received:after
+//  content: ""
+//  position: absolute
+//  right: 100%
+//  //top: 26px
+//  width: 0
+//  height: 0
+//  border-top: 13px solid transparent
+//  border-right: 26px solid red
+//  border-bottom: 13px solid transparent
 
 .sent
   background: #B4FFBC
@@ -141,3 +153,12 @@ li
 
 .text-color-grey
   color: lightgrey
+
+.message-avatar
+  width: 30px
+  height: 30px
+  border-radius: 50%
+  //margin-left: -12px
+@media screen and (max-width: 667px)
+  .message-avatar
+    display: none
